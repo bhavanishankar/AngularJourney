@@ -1,0 +1,59 @@
+body {
+  padding: 10px;
+}
+.data {
+    padding: 20px;
+    border: 1px solid #ccc;
+    
+}
+.language {
+    padding: 15px;
+    float: left;
+    font-size: 16px;
+}
+.language-text {
+    float: left;
+    color: #fff;
+    background-color: #2E64FE;
+    
+}
+.language-count {
+    float: left;
+    background-color: #FFFF00;
+}
+.projects {
+    clear: both;
+}
+.project-heading {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #ccc;
+}
+text {
+    font-family: sans-serif;
+    font-size: 12px;
+    fill: white;
+}
+#tooltip {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -mox-box-shadow: 4px 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rbga(0, 0, 0, 0.4) pointer-events: none;
+}
+#tooltip.hidden {
+    opacity: 0;
+}
+#tooltip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
