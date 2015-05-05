@@ -1,47 +1,34 @@
-<html>
-  <head>
-	<title> Google Visualization API </title>
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the bar chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
-        ]);
-
-        // Set chart options
-        var options = {'title':'How Much Pizza I Ate Last Night',
-                       'width':400,
-                       'height':300};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-
-  <body>
-    <!--Div that will hold the bar chart-->
-    <div id="chart_div"></div>
-  </body>
+<html ng-app="app">
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<meta charset=utf-8 />
+<title>Angular JS Demo</title>
+</head>
+<body ng-controller="MainCtrl">
+    (work in progress....)
+<h1> GitHub Repositories Listing </h1>
+  <label> Enter User Name: <input ng-model="reponame"/><button ng-click="getData()">Get</button></label>
+  <pie-chart chart-data="myData"></pie-chart> 
+  <div id="tooltip" class="hidden">
+    <p><span id="key"></span>
+    </p>
+    <p><span id="value">100</span>%</p>
+</div>
+   <div class="data"><span ng-if="loading">Loading...</span>
+        <div class="language" ng-repeat = "(key, val) in langMap track by key">
+            <div class="language language-text">{{key}}</div>
+            <div class="language language-count">{{val}}</div>
+        </div>
+        <div class="projects" ng-repeat = "item in data">
+            <div class="project-heading" ><a href='{{ item.html_url}}' target='_blank'>{{$index}}. {{item.name}}</a> </div>
+            <ul>
+       <li>Last updated: {{item.updated_at}}</li>
+        <li>{{item.description}}</li> </ul>
+        </div></div>
+   <script type="text/javascript" src="app.js"></script>
+</body>
 </html>
